@@ -11,15 +11,8 @@ import CoreMotion
 
 class MotionDataManager: CMMotionManager {
     
-    static let shared: MotionDataManager = {
-        return MotionDataManager()
-    }()
     private let motionQueue = OperationQueue()
-    
-    override init() {
-        super.init()
-    }
-    
+        
     public func stopMotionUpdates() {
         super.stopDeviceMotionUpdates()
         super.stopAccelerometerUpdates()
