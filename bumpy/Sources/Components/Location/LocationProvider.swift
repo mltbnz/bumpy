@@ -8,48 +8,56 @@
 
 import CoreLocation
 
-class LocationProvider: NSObject {
-    public var locationFetcher: LocationFetcher
-    public let currentLocation: Observable<CLLocation?>
-    fileprivate var isAuthorized: Bool?
+class LocationProvider: NSObject, LocationProviding {
+    public var locationFetcher: LocationFetcherType
+    public var isAuthorized: AuthorizationObserver
+    public var userLocation: LocationObserver
     
-    init(locationFetcher: LocationFetcher = CLLocationManager()) {
+    init(locationFetcher: LocationFetcherType = CLLocationManager()) {
         self.locationFetcher = locationFetcher
-        self.currentLocation = Observable(nil)
+        self.userLocation = Observable(nil)
+        self.isAuthorized = Observable(false)
         super.init()
         self.locationFetcher.locationFetcherDelegate = self
         self.locationFetcher.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
     
-    public func requestAuthorization() {
-        locationFetcher.requestWhenInUseAuthorization()
+    func requestAuthorization(for type: AuthorizationType = .whenInUse) {
+        // Request appropiate authorization
+        switch type {
+        case .whenInUse:
+            locationFetcher.requestWhenInUseAuthorization()
+        case .always:
+            locationFetcher.requestAlwaysAuthorization()
+        }
     }
     
-    func startUpdatingLocation() {
-        guard let isAuthorized = self.isAuthorized else {
-            return
-        }
-        if isAuthorized {
-            locationFetcher.startUpdatingLocation()
-        }
+    /// Starts the generation of updates that report the user’s current location.
+    func startTrackingLocation(allowsBackgroundLocation: Bool) {
+        locationFetcher.allowsBackgroundLocationUpdates = allowsBackgroundLocation
+        locationFetcher.startUpdatingLocation()
+    }
+    
+    /// Stops the generation of location updates.
+    func stopTrackingLocation() {
+        locationFetcher.allowsBackgroundLocationUpdates = false
+        locationFetcher.stopUpdatingLocation()
     }
 }
 
 extension LocationProvider: LocationFetcherDelegate {
-    func locationFetcher(_ fetcher: LocationFetcher, didUpdateLocations locations: [CLLocation]?) {
+    func locationFetcher(_ fetcher: LocationFetcherType, didUpdateLocations locations: [CLLocation]?) {
         guard let locations = locations, let currentLocation = locations.first else {
             return
         }
-        self.currentLocation.value = currentLocation
+        userLocation.value = currentLocation
     }
     
-    func locationFetcher(_ fetcher: LocationFetcher, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse, .restricted:
-            self.isAuthorized = true
-        case .denied, .notDetermined:
-            self.isAuthorized = false
+    func locationFetcher(_ fetcher: LocationFetcherType, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status != .notDetermined else {
+            return
         }
+        isAuthorized.value = status.isAuthorized
     }
 }
 

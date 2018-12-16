@@ -12,15 +12,14 @@ import CoreLocation
 
 class GVKCurrentLocationProvider: XCTestCase {
     
-    struct MockLocationFetcher: LocationFetcher {
+    class MockLocationFetcher: LocationFetcherType {
+        
         weak var locationFetcherDelegate: LocationFetcherDelegate?
         var desiredAccuracy: CLLocationAccuracy = 0
-        
-        func requestLocation() {
-            
-        }
-        func requestWhenInUseAuthorization() {
-        }
+
+        func requestWhenInUseAuthorization() {}
+        func startUpdatingLocation() {}
+        func stopUpdatingLocation() {}
     }
     
     var sut: LocationProvider!
@@ -35,15 +34,15 @@ class GVKCurrentLocationProvider: XCTestCase {
         super.tearDown()
     }
     
-    func testLocationManager_IsSet_isNotNil() {
+    func test_shouldSetLocationfetcher_returnsFetcher_when_providerIsCreated() {
         XCTAssertNotNil(sut.locationFetcher)
     }
     
-    func testLocationManagerDelegate_IsSet_isNotNil() {
+    func test_shouldSetLocationfetcherDelegate_returnsValue_when_providerIsCreated() {
         XCTAssertNotNil(sut.locationFetcher.locationFetcherDelegate)
     }
     
-    func testLocationManagerDelegate_IsOfTypeCLLocationManagerDelegate_True() {
+    func test_shouldSetDelegate_isLocationProvider_when_() {
         XCTAssertNotNil(sut.locationFetcher.locationFetcherDelegate as? LocationProvider)
     }
 }
