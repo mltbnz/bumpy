@@ -11,14 +11,25 @@
 #
 
 update_fastlane
-setup_travis
 
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :tests do
-    run_tests(scheme: "bumpy",
-              devices: ["iPhone X"])
+  before_all do
+    setup_travis
+    reset_simulators
+    clear_derived_data
+  end
+
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      scheme: "bumpy",
+      devices: ["iPhone X"],
+      code_coverage: true,
+      fail_build: false,
+      test_without_building: true
+    )
   end
 end
