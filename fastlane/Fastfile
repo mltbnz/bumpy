@@ -26,9 +26,7 @@ platform :ios do
     scan(
       scheme: "bumpy",
       devices: ["iPhone X"],
-      code_coverage: true,
-      fail_build: false,
-      test_without_building: true
+      code_coverage: true
     )
   end
 end
