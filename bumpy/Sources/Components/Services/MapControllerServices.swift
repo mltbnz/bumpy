@@ -13,7 +13,9 @@ struct MapControllerServices {
 }
 
 extension MapControllerServices {
-    init(with locationProvider: LocationProviding = LocationProvider()) {
-        bumpyController = BumpyController(locationProvider: locationProvider)
+    init(with locationProvider: LocationProviding = LocationProvider(),
+         motionDataProvider: MotionDataProvider = MotionDataProvider(motionManager: MotionDataManager())) {
+        bumpyController = BumpyController(locationProvider: locationProvider,
+                                          motionManager: motionDataProvider)
     }
 }

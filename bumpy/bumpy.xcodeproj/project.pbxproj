@@ -29,6 +29,8 @@
 		948B603F21B2AD7000CA2426 /* BumpyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B603E21B2AD7000CA2426 /* BumpyController.swift */; };
 		948B604121B2B8FC00CA2426 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B604021B2B8FC00CA2426 /* Observable.swift */; };
 		948B604421B2DB1900CA2426 /* CMDeviceMotion+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B604321B2DB1900CA2426 /* CMDeviceMotion+Extra.swift */; };
+		94AF9F6C21C7B11300F35098 /* MockLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF9F6A21C7B0FC00F35098 /* MockLocationFetcher.swift */; };
+		94AF9F6E21C7B22700F35098 /* LocationFetcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF9F6D21C7B22700F35098 /* LocationFetcherTest.swift */; };
 		94D424DD21C6DF9C00527B9C /* MotionDataManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D424DC21C6DF9C00527B9C /* MotionDataManaging.swift */; };
 		94D424DF21C6E43700527B9C /* MotionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D424DE21C6E43700527B9C /* MotionDataProvider.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		948B603E21B2AD7000CA2426 /* BumpyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumpyController.swift; sourceTree = "<group>"; };
 		948B604021B2B8FC00CA2426 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		948B604321B2DB1900CA2426 /* CMDeviceMotion+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMDeviceMotion+Extra.swift"; sourceTree = "<group>"; };
+		94AF9F6A21C7B0FC00F35098 /* MockLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationFetcher.swift; sourceTree = "<group>"; };
+		94AF9F6D21C7B22700F35098 /* LocationFetcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcherTest.swift; sourceTree = "<group>"; };
 		94D424DC21C6DF9C00527B9C /* MotionDataManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataManaging.swift; sourceTree = "<group>"; };
 		94D424DE21C6E43700527B9C /* MotionDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,7 +169,9 @@
 			children = (
 				9447B9522191DAC0000DAA1C /* Info.plist */,
 				948B603B21B2A3ED00CA2426 /* bumpyTests-Bridging-Header.h */,
+				94AF9F6A21C7B0FC00F35098 /* MockLocationFetcher.swift */,
 				948B603C21B2A3ED00CA2426 /* LocationProviderTest.swift */,
+				94AF9F6D21C7B22700F35098 /* LocationFetcherTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -366,7 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AF9F6C21C7B11300F35098 /* MockLocationFetcher.swift in Sources */,
 				948B603D21B2A3ED00CA2426 /* LocationProviderTest.swift in Sources */,
+				94AF9F6E21C7B22700F35098 /* LocationFetcherTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
