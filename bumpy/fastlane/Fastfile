@@ -10,14 +10,15 @@
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
+setup_travis
 
 default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
   lane :tests do
-    run_tests(scheme: "bumpy")
+    run_tests(scheme: "bumpy",
+              devices: ["iPhone X"])
   end
 end

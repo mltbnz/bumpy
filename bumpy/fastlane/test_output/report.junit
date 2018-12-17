@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='bumpyTests.xctest' tests='11' failures='0'>
+  <testsuite name='bumpyTests.GVKCurrentLocationProvider' tests='10' failures='0'>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldHaveDefaultDistanceFilter_whenProviderIsCreated' time='0.004'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldPausesLocationUpdatesAutomatically_whenProviderIsCreated' time='0.001'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldReturnIsAuthorized_whenrequestAlwaysAuthorization' time='0.003'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldReturnIsAuthorized_whenRequestWhenInUseAuthorization' time='0.001'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldReturnLocationUpdate_whenStartTrackingLocation' time='0.002'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldSetCustomAccuracy_whenInjectedIntoInitializer' time='0.000'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldSetDelegate_isLocationProvider_when_' time='0.001'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldSetLocationfetcher_returnsFetcher_when_providerIsCreated' time='0.001'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldSetLocationfetcherDelegate_returnsValue_when_providerIsCreated' time='0.001'/>
+    <testcase classname='bumpyTests.GVKCurrentLocationProvider' name='test_shouldSetNewValue_whenAllowsBackgroundLocationUpdatesIsSet' time='0.001'/>
+  </testsuite>
+  <testsuite name='bumpyTests.LocationFetcherTest' tests='1' failures='0'>
+    <testcase classname='bumpyTests.LocationFetcherTest' name='test_shouldReturnNilForRequestHandleCallback_whenProviderStopsLocationTracking' time='0.001'/>
+  </testsuite>
+</testsuites>

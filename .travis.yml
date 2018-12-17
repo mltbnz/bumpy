@@ -1,4 +1,6 @@
-osx_image: xcode10.1
-language: swift
+language: objective-c
+osx_image: xcode8.3
+install:
+  - bundle install
 script:
-– fastlane ios coverage
+  - fastlane beta
